@@ -8,15 +8,17 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 -- Comments
-map({ "n", "i" }, "<C-_>", function()
-  require("Comment.api").toggle.linewise.current()
-end, { desc = "Comment Line Toggle" })
-map(
-  "v",
-  "<C-_>",
-  "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-  { desc = "Comment Line Toggle" }
-)
+map({ "n", "i" }, "<C-_>", "gcc", { desc = "toggle comment", remap = true })
+map( "v", "<C-_>", "gc", { desc = "toggle comment", remap = true })
+-- map({ "n", "i" }, "<C-_>", function()
+--   require("Comment.api").toggle.linewise.current()
+-- end, { desc = "Comment Line Toggle" })
+-- map(
+--   "v",
+--   "<C-_>",
+--   "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+--   { desc = "Comment Line Toggle" }
+-- )
 
 -- Movement
 map("n", "<A-j>", "<Esc>:m .+1<CR>==", { desc = "Move block down" })
