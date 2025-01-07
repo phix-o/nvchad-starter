@@ -18,6 +18,20 @@ return {
     requires = "kevinhwang91/promise-async",
   },
   {
+    "ray-x/go.nvim",
+    dependencies = { -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
@@ -25,7 +39,7 @@ return {
         "typescript-language-server",
         "rust-analyzer",
         "vue-language-server",
-				"ruff",
+        "ruff",
 
         -- formatters
         "prettier",
@@ -40,10 +54,10 @@ return {
       },
     },
   },
-   {
-   	"nvim-treesitter/nvim-treesitter",
-   	opts = {
-   		ensure_installed = {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
         -- web
         "html",
         "css",
@@ -56,13 +70,14 @@ return {
         -- other
         "rust",
         "python",
-				"dart",
+        "dart",
+				"elixir",
 
         -- defaults
         "vim",
         "lua",
-        "vimdoc"
-   		},
-   	},
-   },
+        "vimdoc",
+      },
+    },
+  },
 }

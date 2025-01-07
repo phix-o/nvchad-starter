@@ -27,6 +27,7 @@ local servers = {
   eslint = {},
   rust_analyzer = {},
   dartls = {},
+  gopls = {},
   pyright = {
     settings = {
       pyright = {
@@ -42,6 +43,9 @@ local servers = {
     },
   },
   ruff = {},
+  elixirls = {
+    cmd = { "/home/anonymous/.local/bin/elixir-ls/language_server.sh" },
+  },
 }
 
 -- lsps with default config
@@ -56,7 +60,7 @@ for name, opts in pairs(servers) do
       end
     end
   else
-		opts.on_attach = nvlsp.on_attach
+    opts.on_attach = nvlsp.on_attach
   end
 
   -- local setup = vim.tbl_deep_extend("force", default_setup, lsp_opts)
@@ -70,4 +74,3 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
   -- delay update diagnostics
   update_in_insert = true,
 })
-

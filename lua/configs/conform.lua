@@ -4,6 +4,7 @@ local options = {
     vue = { "prettier", "eslint_d" },
 		typescriptreact = { "prettier", "eslint_d" },
     python = { "isort", "ruff_organize_imports", "ruff_fix", "ruff_format" },
+		go = { "gofmt" },
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
