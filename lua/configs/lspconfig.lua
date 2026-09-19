@@ -15,4 +15,6 @@ for name, opts in pairs(servers) do
   vim.lsp.enable(name)
 end
 
+require("ufo").setup();
+
 -- read :h vim.lsp.config for changing options of lsp servers 
