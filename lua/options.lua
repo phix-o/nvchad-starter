@@ -3,9 +3,10 @@ require "nvchad.options"
 -- add yours here!
 local options = {
   clipboard = "unnamedplus",
+  scrolloff = 8,
 
   -- Folding
-  foldcolumn = "1",
+  foldcolumn = "0",
   foldlevel = 99,
   foldlevelstart = 99,
   foldenable = true,
